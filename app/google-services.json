@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "936486760126",
-    "firebase_url": "https://sparknetwork-8a4c5.firebaseio.com",
-    "project_id": "sparknetwork-8a4c5",
-    "storage_bucket": "sparknetwork-8a4c5.appspot.com"
+    "project_number": "540751661167",
+    "firebase_url": "https://spark-network.firebaseio.com",
+    "project_id": "spark-network",
+    "storage_bucket": "spark-network.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:936486760126:android:a9dba482344d1eb41978ef",
+        "mobilesdk_app_id": "1:540751661167:android:0b9ee4360ad93cb1eb259a",
         "android_client_info": {
           "package_name": "com.dawar.sparknetwork"
         }
       },
       "oauth_client": [
         {
-          "client_id": "936486760126-fecc7vl57bisjd2mvfo7ivvbs9pu1phn.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.dawar.sparknetwork",
-            "certificate_hash": "97766a16950abdbc0f2be1ef5f8828248d26bd96"
-          }
-        },
-        {
-          "client_id": "936486760126-tpp36861fk3lb56dkj42i98egvt902k6.apps.googleusercontent.com",
+          "client_id": "540751661167-ukqq6vv576fl93slppo6haonvc790ei2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBJIhTaoBwdWVBjLo4G52qCGscQP8innuE"
+          "current_key": "AIzaSyD8zcMf-5qaTxOzWA-8ZoN59oOk7ArO8Sw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "936486760126-tpp36861fk3lb56dkj42i98egvt902k6.apps.googleusercontent.com",
+              "client_id": "540751661167-ukqq6vv576fl93slppo6haonvc790ei2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

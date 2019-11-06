@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SparkNetwork</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="e_mail">E-mail</string>
+    <string name="submit">submit</string>
+    <string name="loading"> Loading…</string>
+</resources>

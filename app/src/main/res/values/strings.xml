@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">SparkNetwork</string>
+    <string name="app_name">Careem</string>
     <string name="name">Name</string>
     <string name="phone">Phone</string>
     <string name="address">Address</string>
     <string name="e_mail">E-mail</string>
     <string name="submit">submit</string>
     <string name="loading"> Loading…</string>
+    <string name="book">Book</string>
+    <string name="booking">Booking…</string>
+    <string name="message_optional">Message (Optional)</string>
+    <string name="success">success</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.dawar.sparknetwork.ui.main.database
 
+import com.dawar.sparknetwork.models.SmsRide
 import com.dawar.sparknetwork.models.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -10,7 +11,8 @@ class AppDatabase private constructor() {
 
     private val database = FirebaseDatabase.getInstance()
     private val dbRootRef = database.reference
-    private val userNode = dbRootRef.child("Users")
+    private val usersNode = dbRootRef.child("Users")
+    private val ridesNode by lazy { usersNode.child(userId).child("rides") }
     private lateinit var onUser: ((User?) -> Unit)
     private lateinit var userId: String
 
@@ -29,7 +31,7 @@ class AppDatabase private constructor() {
 
     fun saveUser(user: User, onSuccess: ((Boolean) -> Unit)? = null) {
 
-        userNode.child("SN-1").setValue(user)
+        usersNode.child(user.id).setValue(user)
             .addOnCompleteListener {
                 onSuccess?.invoke(it.isSuccessful)
             }
@@ -39,12 +41,19 @@ class AppDatabase private constructor() {
     fun getUser(id: String, onUser: ((User?) -> Unit)) {
         this.onUser = onUser
         this.userId = id
-        userNode.addValueEventListener(valueEventListener)
+        usersNode.addValueEventListener(valueEventListener)
 
     }
 
+    fun createRideRequestBySms(smsRide: SmsRide, onSuccess: ((Boolean, String?) -> Unit)? = null) {
+        // val ridesNode = usersNode.child(userId).child("rides")
+        ridesNode.child("SmsRide").setValue(smsRide).addOnCompleteListener {
+            onSuccess?.invoke(it.isSuccessful, it.exception?.message)
+        }
+    }
+
     private fun close() {
-        userNode.removeEventListener(valueEventListener)
+        usersNode.removeEventListener(valueEventListener)
     }
 
     companion object {

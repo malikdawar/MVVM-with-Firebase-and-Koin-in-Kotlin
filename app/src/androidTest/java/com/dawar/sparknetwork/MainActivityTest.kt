@@ -52,7 +52,7 @@ class MainActivityTest {
             email = "mm@gmail.com"
             phone = "03217004104"
         }
-        mainActivity.profileFragment.mProfileViewModel.saveProfile(user)
+        // mainActivity.smsRideBookingFragment.mUserViewModel.saveProfile(user)
 
     }
 

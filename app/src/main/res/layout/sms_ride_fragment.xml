@@ -5,18 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.booking.sms.SmsRideBookingFragment">
 
     <ImageView
         android:id="@+id/ivImg"
-        android:layout_width="60dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/app_name"
+        android:src="@drawable/careem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etName"
@@ -26,9 +26,12 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:hint="@string/name"
+        android:hint="@string/message_optional"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:maxLength="100"
+        android:paddingBottom="16dp"
+        android:textColorHint="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivImg" />
@@ -44,6 +47,7 @@
         android:hint="@string/e_mail"
         android:importantForAutofill="no"
         android:inputType="textWebEmailAddress"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etName" />
@@ -59,6 +63,7 @@
         android:hint="@string/phone"
         android:importantForAutofill="no"
         android:inputType="phone"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail" />
@@ -74,6 +79,7 @@
         android:hint="@string/address"
         android:importantForAutofill="no"
         android:inputType="text"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPhone" />
@@ -83,7 +89,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/submit"
+        android:background="@color/colorAccent"
+        android:text="@string/book"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etAddress" />

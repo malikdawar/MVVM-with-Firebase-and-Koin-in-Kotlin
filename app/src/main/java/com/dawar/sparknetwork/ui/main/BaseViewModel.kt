@@ -1,6 +1,5 @@
 package com.dawar.sparknetwork.ui.main
 
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 
 /**
@@ -11,9 +10,9 @@ abstract class BaseViewModel<View> : ViewModel() {
 
     /**
      * This method must be called by the UI to attach navigation to be monitored by the substituted view model to respond to UI specific event changes.
-     * @param navigator reference to navigation
+     * @param view reference to navigation
      */
-    open fun attachView(view: View, lifecycleOwner: LifecycleOwner) {
+    fun attachView(view: View) {
         this.view = view
     }
 

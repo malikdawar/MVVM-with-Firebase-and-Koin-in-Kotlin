@@ -22,7 +22,6 @@ class SmsRideBookingFragment : BaseFragment(),
         (activity as MainActivity).gpsLocation
     }
 
-
     companion object {
         fun newInstance() = SmsRideBookingFragment()
     }
@@ -34,14 +33,13 @@ class SmsRideBookingFragment : BaseFragment(),
 
         mRideViewModel.apply {
             getRideBookedData().observe(this@SmsRideBookingFragment, mUserDataUpdateObserver)
+            getRideBookingData().observe(this@SmsRideBookingFragment, mRideRequestObserver)
             getUserData().observe(this@SmsRideBookingFragment, mUserObserver)
             getErrorData().observe(this@SmsRideBookingFragment, mErrorObserver)
             attachView(this@SmsRideBookingFragment)
-            getCustomer("1")
+            getUser("1")
 
         }
-
-
     }
 
     override fun onCreateView(
@@ -56,15 +54,13 @@ class SmsRideBookingFragment : BaseFragment(),
         btnSubmit.setOnClickListener {
             submitRequest()
         }
-
+        mRideViewModel.attachRideListener()
     }
 
     private fun submitRequest() {
         enableSubmitButton(false)
         val smsRide = SmsRide(gpsLocation.getUserLocation())
         mRideViewModel.newRideRequest(smsRide)
-
-
     }
 
     private fun enableSubmitButton(enabled: Boolean = true) {
@@ -75,7 +71,6 @@ class SmsRideBookingFragment : BaseFragment(),
     override fun onRideBooked() {
         enableSubmitButton()
         showToast(getString(R.string.success))
-
     }
 
     override fun onError(s: String) {
@@ -83,7 +78,19 @@ class SmsRideBookingFragment : BaseFragment(),
         enableSubmitButton()
     }
 
-    override fun onCustomerFound(user: User) {
+    override fun onUserFound(user: User) {
         showToast("Welcome ${user.name}")
+    }
+
+    override fun onRideListener(smsRide: SmsRide) {
+
+        val msg = when (smsRide.rideStatus) {
+            0 -> "RIDE REQUESTED"
+            1 -> "RIDE ACCEPTED"
+            2 -> "RIDE PICKED"
+            3 -> "RIDE COMPLETE"
+            else -> "RIDE COMPLETED"
+        }
+        etName.setText(msg)
     }
 }

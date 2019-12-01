@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "540751661167",
+    "firebase_url": "https://spark-network.firebaseio.com",
+    "project_id": "spark-network",
+    "storage_bucket": "spark-network.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540751661167:android:5aa7bc7226c1257beb259a",
+        "android_client_info": {
+          "package_name": "com.courioo.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540751661167-ukqq6vv576fl93slppo6haonvc790ei2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8zcMf-5qaTxOzWA-8ZoN59oOk7ArO8Sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540751661167-ukqq6vv576fl93slppo6haonvc790ei2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540751661167:android:0b9ee4360ad93cb1eb259a",
+        "android_client_info": {
+          "package_name": "com.dawar.sparknetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540751661167-ukqq6vv576fl93slppo6haonvc790ei2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8zcMf-5qaTxOzWA-8ZoN59oOk7ArO8Sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540751661167-ukqq6vv576fl93slppo6haonvc790ei2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,5 @@
 package com.dawar.sparknetwork.models
 
-class Location(val latitude: Double?, val longitude: Double?)
+data class Location(val latitude: Double?, val longitude: Double?) {
+    constructor() : this(null, null)
+}

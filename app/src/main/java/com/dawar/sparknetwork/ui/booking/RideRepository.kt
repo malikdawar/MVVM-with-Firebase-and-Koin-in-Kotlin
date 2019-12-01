@@ -5,9 +5,12 @@ import com.dawar.sparknetwork.ui.main.BaseRepository
 
 class RideRepository private constructor() : BaseRepository() {
 
-
     fun newRideBySms(smsRide: SmsRide, onSuccess: ((Boolean, String?) -> Unit)? = null) {
         mAppDatabase.createRideRequestBySms(smsRide, onSuccess)
+    }
+
+    fun attachRideListener(onRideRequest: (SmsRide) -> Unit) {
+        mAppDatabase.attachSmsRideListener(onRideRequest)
     }
 
 

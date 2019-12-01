@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         launchProfileFragment()
         gpsLocation = GPSLocation(this)
 
-
     }
 
     override fun onRequestPermissionsResult(

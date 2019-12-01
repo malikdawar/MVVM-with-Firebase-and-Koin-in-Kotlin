@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Careem Driver</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="e_mail">E-mail</string>
+    <string name="submit">submit</string>
+    <string name="loading"> Loading…</string>
+    <string name="book">Book</string>
+    <string name="booking">Booking…</string>
+    <string name="message_optional">Message (Optional)</string>
+    <string name="success">success</string>
+    <string name="goOnline">Go Online</string>
+    <string name="acceptRide">Accept Ride</string>
+    <string name="pickedRide">Picked Ride</string>
+    <string name="completedRide">Completed Ride</string>
+    <string name="online">Online</string>
+    <string name="gettingOnline">Marking you online</string>
+</resources>

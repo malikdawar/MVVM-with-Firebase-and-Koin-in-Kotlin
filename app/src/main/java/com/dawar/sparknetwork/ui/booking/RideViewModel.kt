@@ -21,10 +21,12 @@ class RideViewModel(
     private val mUserData = MutableLiveData<User>()
     private val mRideBooked = MutableLiveData<Boolean>()
     private val mError = MutableLiveData<String>()
-
+    private val mRideRequestData = MutableLiveData<SmsRide>()
     fun getUserData() = mUserData as LiveData<User?>
 
     fun getRideBookedData() = mRideBooked as LiveData<Boolean>
+
+    fun getRideBookingData() = mRideRequestData as LiveData<SmsRide>
 
     fun getErrorData() = mError as LiveData<String>
 
@@ -37,9 +39,13 @@ class RideViewModel(
         else mError.postValue("Failed")
     }
 
+    val mRideRequestObserver: Observer<in SmsRide> = Observer {
+        getView().onRideListener(it)
+    }
+
     val mUserObserver: Observer<in User?> = Observer {
         if (it != null)
-            getView().onCustomerFound(it)
+            getView().onUserFound(it)
         else mError.postValue("Customer not found")
     }
 
@@ -51,7 +57,11 @@ class RideViewModel(
         }
     }
 
-    fun getCustomer(id: String) {
+    fun attachRideListener() = mRideRepository.attachRideListener {
+        mRideRequestData.postValue(it)
+    }
+
+    fun getUser(id: String) {
 
         mUserRepository.getUser(id) {
             if (it == null)
@@ -60,6 +70,4 @@ class RideViewModel(
                 mUserData.postValue(it)
         }
     }
-
-
 }

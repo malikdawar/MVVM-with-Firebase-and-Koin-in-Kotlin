@@ -44,6 +44,4 @@ dependencies {
     // or Koin for Android Architecture ViewModel
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 
-
-
 }

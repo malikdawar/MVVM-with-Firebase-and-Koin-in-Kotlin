@@ -10,5 +10,9 @@ public class SmsRide {
 
     }
 
+    public SmsRide() {
+
+    }
+
 
 }

@@ -13,7 +13,9 @@ class AppDatabase private constructor() {
     private val dbRootRef = database.reference
     private val usersNode = dbRootRef.child("Users")
     private val ridesNode by lazy { usersNode.child(userId).child("rides") }
+    private val smsRideNode by lazy { ridesNode.child("SmsRide") }
     private lateinit var onUser: ((User?) -> Unit)
+    private lateinit var onRideRequest: (SmsRide) -> Unit
     private lateinit var userId: String
 
     private val valueEventListener = object : ValueEventListener {
@@ -26,6 +28,22 @@ class AppDatabase private constructor() {
         override fun onCancelled(p0: DatabaseError) {
             onUser(null)
             close()
+        }
+    }
+
+    private val mRidesValueEventListener = object : ValueEventListener {
+        override fun onDataChange(p0: DataSnapshot) {
+            val smsRide = p0.child("SmsRide").getValue(SmsRide::class.java)
+            smsRide?.apply {
+                onRideRequest(this)
+            }
+
+
+        }
+
+        override fun onCancelled(p0: DatabaseError) {
+            p0.toException().printStackTrace()
+
         }
     }
 
@@ -47,9 +65,14 @@ class AppDatabase private constructor() {
 
     fun createRideRequestBySms(smsRide: SmsRide, onSuccess: ((Boolean, String?) -> Unit)? = null) {
         // val ridesNode = usersNode.child(userId).child("rides")
-        ridesNode.child("SmsRide").setValue(smsRide).addOnCompleteListener {
+        smsRideNode.setValue(smsRide).addOnCompleteListener {
             onSuccess?.invoke(it.isSuccessful, it.exception?.message)
         }
+    }
+
+    fun attachSmsRideListener(onRideRequest: (SmsRide) -> Unit) {
+        this.onRideRequest = onRideRequest
+        ridesNode.addValueEventListener(mRidesValueEventListener)
     }
 
     private fun close() {

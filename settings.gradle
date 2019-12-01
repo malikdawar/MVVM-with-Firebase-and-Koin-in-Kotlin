@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':driver'
 rootProject.name='SparkNetwork'
